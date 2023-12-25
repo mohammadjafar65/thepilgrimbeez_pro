@@ -8,10 +8,10 @@ const cors = require('cors');
 
 // Initialize express app
 const app = express();
-const port = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${port}`);
-});
+const port = 3000;
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port ${port}`);
+// });
 
 // Enable CORS for all requests
 app.use(cors());
