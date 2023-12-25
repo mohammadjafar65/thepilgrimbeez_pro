@@ -15,11 +15,15 @@ jobs:
         node-version: '16'
 
     - name: Install Dependencies
-      run: npm install
+      run: |
+        rm -rf node_modules
+        npm install
       working-directory: ./frontend
 
     - name: 🔨 Build Project
-      run: npm run build
+      run: |
+        chmod +x ./frontend/node_modules/.bin/react-scripts
+        npm run build
       working-directory: ./frontend
     
     - name: 📂 Sync files
