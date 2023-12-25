@@ -10,7 +10,7 @@ jobs:
 
     - name: Install Dependencies
       run: npm install
-      working-directory: frontend
+      working-directory: ./frontend
 
     - name: Use Node.js 16
       uses: actions/setup-node@v2
