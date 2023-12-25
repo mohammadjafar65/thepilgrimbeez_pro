@@ -20,7 +20,7 @@ jobs:
 
     - name: 🔨 Build Project
       run: npm run build
-      working-directory: ./
+      working-directory: ./frontend
     
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -28,5 +28,5 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./
+        local-dir: ./frontend
         server-dir: ./backend # Replace with the path where you want to deploy your site
