@@ -8,7 +8,7 @@ const cors = require('cors');
 
 // Initialize express app
 const app = express();
-const port = 3001;
+const port = 3000;
 
 // Enable CORS for all requests
 app.use(cors());
