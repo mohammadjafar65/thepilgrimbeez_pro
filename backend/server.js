@@ -18,8 +18,8 @@ app.use(cors());
 
 // Serve static files from the uploads directory
 app.use('/uploads', express.static('uploads'));
-app.use(express.static(path.join(__dirname, '../frontend/build')));
-// app.use('/static', express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, '../frontend/build')));
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {
