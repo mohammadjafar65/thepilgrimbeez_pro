@@ -16,14 +16,16 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        rm -rf node_modules
         npm install
       working-directory: ./frontend
 
     - name: 🔨 Build Project
       run: |
-        chmod +x ./frontend/node_modules/.bin/react-scripts
         npm run build
+      working-directory: ./frontend
+
+    - name: 🔑 Set execute permissions for react-scripts (if needed)
+      run: chmod +x $(npm bin)/react-scripts
       working-directory: ./frontend
     
     - name: 📂 Sync files
@@ -32,5 +34,5 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./frontend
+        local-dir: ./frontend/build/
         server-dir: ./backend # Replace with the path where you want to deploy your site
