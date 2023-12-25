@@ -8,14 +8,23 @@ const cors = require('cors');
 
 // Initialize express app
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${port}`);
+});
 
 // Enable CORS for all requests
 app.use(cors());
 
 // Serve static files from the uploads directory
 app.use('/uploads', express.static('uploads'));
-app.use('/static', express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+// app.use('/static', express.static(path.join(__dirname, 'public')));
+
+// match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+});
 
 // Ensure the uploads directory exists
 const uploadDir = path.join(__dirname, 'uploads');
