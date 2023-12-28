@@ -11,7 +11,7 @@ const CategoryPackages = () => {
   console.log('Category:', category);
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/packages/${encodeURIComponent(category)}`)
+    axios.get(`http://localhost:3000/packages/${encodeURIComponent(category)}`)
        .then(response => {
         console.log('Packages data:', response.data); // Add this line
         setPackages(response.data);
@@ -45,7 +45,7 @@ const CategoryPackages = () => {
                                 <Link to={`/package/id/${pkg.id}`}>
                                     <div className="card">
                                         <span className="over_hover">
-                                            <img src={`http://localhost:3001/uploads/${pkg.imageUrl}`} alt={pkg.packageName || 'Package Image'} className="card-img" /></span> {/* Corrected className */}
+                                            <img src={`http://localhost:3000/uploads/${pkg.imageUrl}`} alt={pkg.packageName || 'Package Image'} className="card-img" /></span> {/* Corrected className */}
                                         <div className="card_content">
                                             <h2>{pkg.packageName || 'No Name'}</h2>
                                             <p>{pkg.packagePrice ? `₹${pkg.packagePrice}` : 'Not available'}</p>
