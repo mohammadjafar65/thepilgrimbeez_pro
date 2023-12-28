@@ -11,7 +11,7 @@ const PackageDetail = () => {
   useEffect(() => {
     // Only run if ID is truthy
     if (id) {
-      axios.get(`http://localhost:3000/packages/id/${id}`)
+      axios.get(`https://www.thepilgrimbeez.com/backend/packages/id/${id}`)
         .then(response => {
           // Directly check if the data has properties, indicating it's not empty
           if (response.data && Object.keys(response.data).length > 0) {
@@ -36,7 +36,7 @@ const PackageDetail = () => {
   return (
     <>
         <Header />
-        <section id="banner" className="package" style={{ background: `url(http://localhost:3000/uploads/${packageDetails.imageUrl}) 50% 50% no-repeat`, backgroundSize:'cover' }}>
+        <section id="banner" className="package" style={{ background: `url(https://www.thepilgrimbeez.com/backend/uploads/${packageDetails.imageUrl}) 50% 50% no-repeat`, backgroundSize:'cover' }}>
             <div class="css-zixqbe e7svxqc1"></div>
             <div class="container">
                 <div class="row">

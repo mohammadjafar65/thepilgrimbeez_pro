@@ -6,7 +6,7 @@ const DisplayComponent = () => {
     
   // React component to display packages
 useEffect(() => {
-    axios.get('http://localhost:3000/packages')
+    axios.get('https://www.thepilgrimbeez.com/backend/packages')
     .then(response => {
         // Assuming the response data is the array of packages
         setPackages(response.data);
@@ -23,7 +23,7 @@ useEffect(() => {
                 <div key={index}>
                     {/* Make sure the image URL is valid and not null/undefined */}
                     {/* {pkg.imageUrl ? <img src={pkg.imageUrl} alt={pkg.packageName || 'Package Image'} /> : <p>No image available</p>} */}
-                    <img src={`http://localhost:3000/uploads/${pkg.imageUrl}`} alt={pkg.packageName || 'Package Image'} />
+                    <img src={`https://www.thepilgrimbeez.com/backend/uploads/${pkg.imageUrl}`} alt={pkg.packageName || 'Package Image'} />
                     <h3>{pkg.packageName || 'No Name'}</h3>
                     <p>Price: {pkg.packagePrice ? `$${pkg.packagePrice}` : 'Not available'}</p>
                     <p>Date: {pkg.packageDate || 'Not available'}</p>

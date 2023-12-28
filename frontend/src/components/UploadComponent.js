@@ -6,7 +6,7 @@ class UploadComponent extends React.Component {
         event.preventDefault();
         const data = new FormData(event.target);
       
-        axios.post('http://localhost:3000/upload', data)
+        axios.post('https://www.thepilgrimbeez.com/backend/upload', data)
           .then(response => {
             console.log(response.data); // Check the response from the server
             alert('File uploaded successfully');

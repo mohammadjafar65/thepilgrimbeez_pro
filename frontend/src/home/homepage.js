@@ -16,7 +16,7 @@ function HomePage() {
 
     useEffect(() => {
         setIsLoading(true); // Start loading
-        axios.get('http://localhost:3000/packages')
+        axios.get('https://www.thepilgrimbeez.com/backend/packages')
             .then(response => {
                 setPackages(response.data);
                 categorizePackages(response.data);
@@ -128,7 +128,7 @@ function HomePage() {
                                                     <Link to={`/package/id/${pkg.id}`}>
                                                         <div className="card">
                                                             <span className="over_hover">
-                                                                <img src={`http://localhost:3000/uploads/${pkg.imageUrl}`} alt={pkg.packageName || 'Package Image'} className="card-img" />
+                                                                <img src={`https://www.thepilgrimbeez.com/backend/uploads/${pkg.imageUrl}`} alt={pkg.packageName || 'Package Image'} className="card-img" />
                                                             </span>
                                                             <div className="card_content">
                                                                 <h2>{pkg.packageName || 'No Name'}</h2>

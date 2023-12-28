@@ -8,7 +8,7 @@ class AddnewPackage extends React.Component {
         const data = new FormData(event.target);
 
         axios
-            .post("http://localhost:3000/upload", data)
+            .post("https://www.thepilgrimbeez.com/backend/upload", data)
             .then((response) => {
                 console.log(response.data); // Check the response from the server
                 alert("File uploaded successfully");
