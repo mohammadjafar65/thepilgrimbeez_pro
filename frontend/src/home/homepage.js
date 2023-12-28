@@ -10,17 +10,21 @@ import axios from 'axios';
 function HomePage() { 
     const [packages, setPackages] = useState([]);
     const [packagesByCategory, setPackagesByCategory] = useState({});
-    const categories = ['POPULAR PACKAGES', 'DUBAI PACKAGES', 'KASHMIR FAMILY PACKAGES']; // Add or fetch your categories
+    const [isLoading, setIsLoading] = useState(true); // Loading state
+    const categories = ['POPULAR PACKAGES', 'DUBAI PACKAGES', 'KASHMIR FAMILY PACKAGES'];
+
 
     useEffect(() => {
-        axios.get('https://www.thepilgrimbeez.com/backend/packages')
+        setIsLoading(true); // Start loading
+        axios.get('http://localhost:3001/packages')
             .then(response => {
                 setPackages(response.data);
-                // After setting the packages, categorize them
                 categorizePackages(response.data);
+                setIsLoading(false); // End loading
             })
             .catch(error => {
                 console.error('Error fetching packages:', error);
+                setIsLoading(false); // End loading
             });
     }, []);
 
@@ -37,6 +41,10 @@ function HomePage() {
 
         setPackagesByCategory(categorized);
     };
+
+    if (isLoading) {
+        return <div>Loading...</div>; // Show loading indicator
+    }
 
     return (
         <>
@@ -115,12 +123,13 @@ function HomePage() {
                                         }}
                                     >
                                         {packagesByCategory[category] && packagesByCategory[category].length > 0 ? (
-                                            packagesByCategory[category].map((pkg, index) => (
-                                                <div className="item" key={index}>
+                                            packagesByCategory[category].map(pkg => (
+                                                <div className="item" key={pkg.id}>
                                                     <Link to={`/package/id/${pkg.id}`}>
                                                         <div className="card">
                                                             <span className="over_hover">
-                                                                <img src={`https://www.thepilgrimbeez.com/backend/uploads/${pkg.imageUrl}`} alt={pkg.packageName || 'Package Image'} classNameName="card-img" /></span>
+                                                                <img src={`http://localhost:3001/uploads/${pkg.imageUrl}`} alt={pkg.packageName || 'Package Image'} className="card-img" />
+                                                            </span>
                                                             <div className="card_content">
                                                                 <h2>{pkg.packageName || 'No Name'}</h2>
                                                                 <p>{pkg.packagePrice ? `₹${pkg.packagePrice}` : 'Not available'}</p>

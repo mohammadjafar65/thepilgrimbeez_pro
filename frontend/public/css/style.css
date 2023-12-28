@@ -1194,11 +1194,17 @@ a:hover {
 }
 
 .agent_card .ag_name span {
-  display: inline-block;
   width: 3vw;
   height: 3vw;
   overflow: hidden;
   border-radius: 50px;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  color: #c9c9c9e8;
 }
 
 .agent_card .ag_name span img {
