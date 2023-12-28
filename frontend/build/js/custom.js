@@ -26,71 +26,71 @@
 	});
 
 
-	$('.slider').owlCarousel({
-		loop:true,
-		items:1,
-		margin:0,
-		nav:true,
-		autoplay:true,
-		center:true,
-		stagePadding:0,
-		nav:false
-	});
+	// $('.slider').owlCarousel({
+	// 	loop:true,
+	// 	items:1,
+	// 	margin:0,
+	// 	nav:true,
+	// 	autoplay:true,
+	// 	center:true,
+	// 	stagePadding:0,
+	// 	nav:false
+	// });
 	
 
-	$('.projects').owlCarousel({
-		loop:false,
-		margin:15,
-		nav:true,
-		autoplay:false,
-		responsive:{
-			0:{
-				items:1
-			},
-			600:{
-				items:3
-			},
-			1000:{
-				items:5
-			}
-		}
-	});
+	// $('.projects').owlCarousel({
+	// 	loop:false,
+	// 	margin:15,
+	// 	nav:true,
+	// 	autoplay:false,
+	// 	responsive:{
+	// 		0:{
+	// 			items:1
+	// 		},
+	// 		600:{
+	// 			items:3
+	// 		},
+	// 		1000:{
+	// 			items:5
+	// 		}
+	// 	}
+	// });
 
-	$('.projects-1').owlCarousel({
-		loop:false,
-		margin:15,
-		nav:true,
-		autoplay:false,
-		responsive:{
-			0:{
-				items:1
-			},
-			600:{
-				items:3
-			},
-			1000:{
-				items:5
-			}
-		}
-	});
+	// $('.projects-1').owlCarousel({
+	// 	loop:false,
+	// 	margin:15,
+	// 	nav:true,
+	// 	autoplay:false,
+	// 	responsive:{
+	// 		0:{
+	// 			items:1
+	// 		},
+	// 		600:{
+	// 			items:3
+	// 		},
+	// 		1000:{
+	// 			items:5
+	// 		}
+	// 	}
+	// });
 
-	$('.projects-2').owlCarousel({
-		loop:false,
-		margin:15,
-		nav:true,
-		autoplay:false,
-		responsive:{
-			0:{
-				items:1
-			},
-			600:{
-				items:3
-			},
-			1000:{
-				items:5
-			}
-		}
-	});
+	// $('.projects-2').owlCarousel({
+	// 	loop:false,
+	// 	margin:15,
+	// 	nav:true,
+	// 	autoplay:false,
+	// 	responsive:{
+	// 		0:{
+	// 			items:1
+	// 		},
+	// 		600:{
+	// 			items:3
+	// 		},
+	// 		1000:{
+	// 			items:5
+	// 		}
+	// 	}
+	// });
 	
 	$(function() {
 	var header = $(".header");
