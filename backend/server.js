@@ -5,6 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 const cors = require("cors");
+const mysql = require('mysql');
 
 // Initialize express app
 const app = express();
@@ -12,6 +13,50 @@ const port = 3000;
 
 // Enable CORS for all requests
 app.use(cors());
+
+// Load environment variables
+require('dotenv').config();
+
+const dbConfig = {
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
+};
+
+// Create a connection to the database
+const db = mysql.createConnection(dbConfig);
+
+db.connect((err) => {
+  if (err) {
+    console.error('Error connecting to the database:', err);
+    return;
+  }
+  console.log('Connected to database');
+});
+
+// Database operation to get all packages
+function getAllPackages() {
+  return new Promise((resolve, reject) => {
+    db.query('SELECT * FROM packages', (err, results) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(results);
+    });
+  });
+}
+
+// Then use this function in your route
+app.get("/packages", async (req, res) => {
+  try {
+    const packagesData = await getAllPackages();
+    res.json(packagesData);
+  } catch (error) {
+    console.error("Error fetching packages:", error);
+    res.status(500).send({ error: "Internal Server Error" });
+  }
+});
 
 // Serve static files from the uploads directory
 app.use("/uploads", express.static("uploads"));
